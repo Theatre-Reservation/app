@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
-            title: 'Theatre Reservation System',
+            title: 'Theatre Reservation',
             theme: themeProvider.isDarkMode
                 ? ThemeData.dark().copyWith(primaryColor: Colors.blueGrey)
                 : ThemeData.light().copyWith(primaryColor: Colors.blue),
             home: const HomeScreen(),
             routes: {
-              '/home': (context) => const HomePage(),
+              '/': (context) => const HomePage(),
               '/shows': (context) => const ShowPage(),
               '/booking': (context) => const BookingPage(),
               '/profile': (context) => const ProfilePage(),
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/');
         break;
       case 1:
         Navigator.pushNamed(context, '/shows');
@@ -81,14 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Shows'),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Booking'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.movie_outlined), label: 'Shows'),
+          BottomNavigationBarItem(icon: Icon(Icons.book_outlined), label: 'Booking'),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, '/profile'),
-        child: const Icon(Icons.person),
+        child: const Icon(Icons.person_outline),
       ),
     );
   }

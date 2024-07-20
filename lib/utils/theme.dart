@@ -10,6 +10,7 @@ final ThemeData lightTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: Colors.blue,
   ),
+  iconTheme: const IconThemeData(color: Colors.blue),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -22,4 +23,5 @@ final ThemeData darkTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: Colors.blue,
   ),
+  iconTheme: const IconThemeData(color: Colors.blue),
 );
