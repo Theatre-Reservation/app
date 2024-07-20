@@ -1,5 +1,6 @@
 # App
 
+<pre>
 lib/
 ├── components/
 │   ├── booking/
@@ -8,8 +9,8 @@ lib/
 │   │   └── seat_selection.dart
 │   ├── common/
 │   │   ├── error_message.dart
-│   │   ├── header.dart
-│   │   ├── footer.dart
+│   │   ├── <del>header.dart</del>
+│   │   ├── <del>footer.dart</del>
 │   │   └── protected_route.dart
 │   ├── show/
 │   │   ├── show_details.dart
@@ -36,13 +37,15 @@ lib/
 │   ├── payment_page.dart
 │   ├── booking_confirmation_page.dart
 │   ├── error_page.dart
-│   ├── about_page.dart
-│   └── contact_page.dart
+│   ├── setting_page.dart
+│   └── profile_page.dart
 ├── providers/
 │   ├── auth_provider.dart
 │   ├── booking_provider.dart
 │   ├── show_provider.dart
 │   └── user_provider.dart
+│   └── <del>theme_provider.dart</del>
+
 ├── services/
 │   ├── auth_service.dart
 │   ├── booking_service.dart
@@ -52,6 +55,7 @@ lib/
 │   └── api_service.dart
 ├── utils/
 │   ├── constants.dart
-│   ├── theme.dart
+│   ├── <del>theme.dart</del>
 │   └── validators.dart
 ├── main.dart
+</pre>

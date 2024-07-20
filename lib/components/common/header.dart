@@ -9,19 +9,14 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       title: const Text('Theater Reservation System'),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.home),
+          icon: const Icon(Icons.notifications_none_outlined),
           onPressed: () {
-            Navigator.pushNamed(context, '/');
+            Navigator.pushNamed(context, '/notifications');
           },
         ),
+
         IconButton(
-          icon: const Icon(Icons.movie),
-          onPressed: () {
-            Navigator.pushNamed(context, '/shows');
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.person),
+          icon: const Icon(Icons.person_2_outlined),
           onPressed: () {
             Navigator.pushNamed(context, '/profile');
           },

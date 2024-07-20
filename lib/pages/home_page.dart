@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:app/components/common/header.dart';
-import 'package:app/components/common/footer.dart';
+// import 'package:app/components/common/footer.dart';
 import 'package:app/providers/theme_provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,9 +15,12 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Welcome to the Theater Reservation System',
+            const Center(
+              child: Text(
+              'Welcome to the Theater Reservation',
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 24),
+              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
