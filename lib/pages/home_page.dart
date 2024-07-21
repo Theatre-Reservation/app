@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   final List<String> imgList = [
-    'https://example.com/offer1.jpg',
+    'images2.jpg',
     'https://example.com/offer2.jpg',
     'https://example.com/offer3.jpg',
   ];
@@ -92,7 +92,7 @@ class HomeContent extends StatefulWidget {
 
 class _HomeContentState extends State<HomeContent> {
   final List<String> imgList = [
-    'https://example.com/offer1.jpg',
+    'images1.jpg',
     'https://example.com/offer2.jpg',
     'https://example.com/offer3.jpg',
   ];
@@ -109,11 +109,9 @@ class _HomeContentState extends State<HomeContent> {
           CarouselSlider(
             options: CarouselOptions(height: 200.0, autoPlay: true),
             items: imgList
-                .map((item) => Container(
-                      child: Center(
-                        child:
-                            Image.network(item, fit: BoxFit.cover, width: 1000),
-                      ),
+                .map((item) => Center(
+                      child:
+                          Image.network(item, fit: BoxFit.cover, width: 1000),
                     ))
                 .toList(),
           ),
