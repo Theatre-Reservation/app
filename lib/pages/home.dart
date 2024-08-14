@@ -3,23 +3,30 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'show_page.dart';
 import 'booking_page.dart';
 import 'profile_page.dart';
-import 'settings_page.dart';
+import 'settings.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({
+    super.key,
+    required this.changeTheme,
+    required this.appTitle,
+  });
+
+  final void Function(bool useLightMode) changeTheme;
+  final String appTitle;
 
   @override
-  // ignore: library_private_types_in_public_api
-  _HomePageState createState() => _HomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-  final List<String> imgList = [
+  List<String> imgList = [
     'images2.jpg',
     'https://example.com/offer2.jpg',
     'https://example.com/offer3.jpg',
   ];
+
   static final List<Widget> _pages = <Widget>[
     const HomeContent(),
     const ShowPage(),
@@ -36,7 +43,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Theatre Reservation'),
+        title: Text(widget.appTitle),
+        elevation: 4.0,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         actions: [
           IconButton(
             icon: const Icon(Icons.account_circle_outlined),
@@ -52,7 +61,10 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SettingsPage()),
+                MaterialPageRoute(
+                    builder: (context) => Settings(
+                          changeThemeMode: widget.changeTheme,
+                        )),
               );
             },
           ),
@@ -75,7 +87,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: const Color.fromARGB(255, 13, 255, 0),
         onTap: _onItemTapped,
       ),
     );
@@ -106,15 +118,6 @@ class _HomeContentState extends State<HomeContent> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CarouselSlider(
-            options: CarouselOptions(height: 200.0, autoPlay: true),
-            items: imgList
-                .map((item) => Center(
-                      child:
-                          Image.network(item, fit: BoxFit.cover, width: 1000),
-                    ))
-                .toList(),
-          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -127,7 +130,7 @@ class _HomeContentState extends State<HomeContent> {
                 hintText: 'Search for shows...',
                 prefixIcon: const Icon(Icons.search),
                 border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
               ),
             ),
           ),
@@ -147,6 +150,15 @@ class _HomeContentState extends State<HomeContent> {
                       ))
                   .toList(),
             ),
+          ),
+          CarouselSlider(
+            options: CarouselOptions(height: 200.0, autoPlay: true),
+            items: imgList
+                .map((item) => Center(
+                      child:
+                          Image.network(item, fit: BoxFit.cover, width: 1000),
+                    ))
+                .toList(),
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
